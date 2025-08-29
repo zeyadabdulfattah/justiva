@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF--8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimonials | Justivia Law Firm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Lora:wght@400;600;700&family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+      .font-serif {
+        font-family: "Lora", serif;
+      }
+      .bg-primary {
+        background-color: #0d1b2a;
+      }
+      .text-primary-dark {
+        color: #0d1b2a;
+      }
+      .bg-secondary {
+        background-color: #f8f9fa;
+      }
+      .bg-accent {
+        background-color: #c9b47f;
+      }
+      .text-accent {
+        color: #c9b47f;
+      }
+      .border-accent {
+        border-color: #c9b47f;
+      }
+      .bg-logo-blue {
+        background-color: #1a2a44;
+      }
+      .text-logo-blue {
+        color: #1a2a44;
+      }
+      /* High-End Button System */
+      .btn {
+        display: inline-block;
+        font-family: "Cormorant Garamond", serif;
+        padding: 0.8rem 2.5rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+        text-align: center;
+        font-size: 0.9rem;
+        border: 2px solid transparent;
+      }
+      .btn-primary {
+        background-color: #c9b47f;
+        color: #1a2a44;
+        border-color: #c9b47f;
+      }
+      .btn-primary:hover {
+        background-color: #1a2a44;
+        color: #ffffff;
+        border-color: #1a2a44;
+      }
+      .btn-secondary {
+        background-color: transparent;
+        border-color: #c9b47f;
+        color: #c9b47f;
+      }
+      .btn-secondary:hover {
+        background-color: #c9b47f;
+        color: #1a2a44;
+      }
+      /* Enhanced Nav Link Style for Light BG */
+      .nav-link {
+        font-family: "Cormorant Garamond", serif;
+        position: relative;
+        padding-bottom: 6px;
+        transition: color 0.3s;
+        color: #1a2a44; /* Color from logo */
+        font-weight: 600;
+        letter-spacing: 0.1em; /* Increased letter spacing */
+        font-size: 1.125rem; /* Larger font size */
+        text-transform: uppercase;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #c9b47f;
+        transition: width 0.3s ease-in-out;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .nav-link:hover {
+        color: #c9b47f;
+      }
+
+      /* Mega Menu Styles */
+      #mega-menu-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out,
+          visibility 0.5s;
+      }
+      #mega-menu-container.active {
+        max-height: 500px; /* Adjust as needed */
+        opacity: 1;
+        visibility: visible;
+      }
+      .mega-menu-link {
+        font-family: "Lora", serif;
+        color: #1a2a44;
+        transition: color 0.3s, transform 0.3s;
+        display: block;
+        padding: 0.5rem 0;
+      }
+      .mega-menu-link:hover {
+        color: #c9b47f;
+        transform: translateX(5px);
+      }
+
+      /* Arrow animation for practice areas link */
+      #practice-areas-trigger.menu-active svg {
+        transform: rotate(180deg);
+      }
+
+      /* Testimonial Specific Styles */
+      .testimonial-card {
+        background-color: #ffffff;
+        overflow: hidden;
+      }
+
+      .testimonial-image-wrapper {
+        overflow: hidden;
+        position: relative;
+      }
+
+      @keyframes kenburns-subtle {
+        0% {
+          transform: scale(1) translate(0, 0);
+        }
+        100% {
+          transform: scale(1.05) translate(-1%, 1%);
+        }
+      }
+
+      .testimonial-image-wrapper img {
+        transition: transform 0.5s ease-out;
+        animation: kenburns-subtle 20s ease-out forwards;
+      }
+
+      .star-rating svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: #c9b47f;
+      }
+
+      /* Scroll Animation Styles */
+      .animate-on-scroll {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in {
+        transform: translateY(30px);
+      }
+      .is-visible {
+        opacity: 1;
+        transform: none;
+      }
+      /* --- NEW FOOTER STYLES --- */
+      .bg-footer {
+        background-color: #0a1421; /* Darker navy blue */
+      }
+      .footer-link {
+        position: relative;
+        display: inline-block;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .footer-link:hover {
+        color: #c9b47f; /* Accent color */
+        transform: translateX(4px);
+      }
+      .social-icon {
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .social-icon:hover {
+        color: #c9b47f; /* Accent color */
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body class="bg-secondary">
+    <div class="bg-logo-blue text-center py-3">
+      <span class="font-semibold text-white text-lg tracking-wider"
+        >Call Us Today: (713) 936-0783</span
+      >
+    </div>
+
+    <header
+      id="main-header"
+      class="bg-white text-primary-dark sticky top-0 z-50 shadow-lg"
+    >
+      <div
+        class="container mx-auto px-6 flex justify-between items-center relative"
+      >
+        <a href="index.html" title="Justivia Law Firm Homepage">
+          <img
+            src="images-home/Justivia Logo.png"
+            alt="Justivia Law Firm Logo"
+            class="h-40 w-auto"
+          />
+        </a>
+        <nav class="hidden md:flex space-x-12 items-center">
+          <a href="index.html" class="nav-link">Home</a>
+          <a
+            href="practice-areas.html"
+            id="practice-areas-trigger"
+            class="nav-link flex items-center"
+          >
+            <span>Practice Areas</span>
+            <svg
+              class="w-4 h-4 ml-2 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </a>
+          <a href="testimonials.html" class="nav-link">Testimonials</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="index.html#contact" class="btn btn-secondary text-accent"
+            >Contact</a
+          >
+        </nav>
+        <button class="md:hidden text-2xl">☰</button>
+      </div>
+
+      <div id="mega-menu-container">
+        <div
+          class="container mx-auto px-6 py-8 grid grid-cols-3 gap-x-8 gap-y-4"
+        >
+          <a href="practice-areas.html#divorce" class="mega-menu-link"
+            >Divorce & Separation</a
+          >
+          <a href="practice-areas.html#custody" class="mega-menu-link"
+            >Child Custody & Support</a
+          >
+          <a href="practice-areas.html#assets" class="mega-menu-link"
+            >Complex Asset Division</a
+          >
+          <a href="practice-areas.html#alimony" class="mega-menu-link"
+            >Alimony & Spousal Support</a
+          >
+          <a href="practice-areas.html#prenup" class="mega-menu-link"
+            >Prenuptial Agreements</a
+          >
+          <a href="practice-areas.html#adoption" class="mega-menu-link"
+            >Adoption Services</a
+          >
+          <a href="practice-areas.html#dv" class="mega-menu-link"
+            >Domestic Violence Orders</a
+          >
+          <a href="practice-areas.html#mediation" class="mega-menu-link"
+            >Mediation & Collaborative Law</a
+          >
+          <a href="practice-areas.html#paternity" class="mega-menu-link"
+            >Paternity & Father's Rights</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="bg-white py-20 text-center">
+        <div class="container mx-auto px-6">
+          <h1 class="text-5xl md:text-6xl font-display text-logo-blue mb-4">
+            Client Acclaim
+          </h1>
+          <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+          <p class="font-serif text-lg text-gray-700 max-w-3xl mx-auto">
+            Our greatest measure of success is the peace of mind and
+            satisfaction of our clients. We are honored to share their stories
+            and experiences with our firm.
+          </p>
+        </div>
+      </section>
+
+      <section class="container mx-auto px-6 py-24">
+        <div class="max-w-5xl mx-auto space-y-24">
+          <article
+            class="testimonial-card grid md:grid-cols-2 items-center gap-12 shadow-xl animate-on-scroll fade-in"
+          >
+            <div class="testimonial-image-wrapper">
+              <img
+                src="images-testmonials/Client 1.png"
+                alt="Portrait of A. Sterling"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-8">
+              <div class="star-rating flex mb-4">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+              </div>
+              <p class="font-serif text-xl text-gray-800 leading-relaxed mb-6">
+                "From the very first consultation, I felt heard and understood.
+                The entire team at Justivia handled my high-asset divorce with
+                unparalleled professionalism and discretion. They turned a
+                daunting process into a manageable one, and I am eternally
+                grateful for the favorable outcome they secured for me."
+              </p>
+              <footer class="font-display text-lg text-logo-blue">
+                <span class="font-bold">A. Sterling</span><br />
+                <span class="text-sm text-gray-500"
+                  >Complex Asset Division Client</span
+                >
+              </footer>
+            </div>
+          </article>
+
+          <article
+            class="testimonial-card grid md:grid-cols-2 items-center gap-12 shadow-xl animate-on-scroll fade-in"
+          >
+            <div class="testimonial-image-wrapper md:order-last">
+              <img
+                src="images-testmonials/Client 3.png"
+                alt="Portrait of M. Chen"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-8">
+              <div class="star-rating flex mb-4">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+              </div>
+              <p class="font-serif text-xl text-gray-800 leading-relaxed mb-6">
+                "Navigating child custody was the most difficult challenge of my
+                life. The compassion and strength shown by my attorney was my
+                anchor. They fought tirelessly for the well-being of my
+                children, and the resulting parenting plan has been a true
+                blessing for our family's stability."
+              </p>
+              <footer class="font-display text-lg text-logo-blue">
+                <span class="font-bold">M. Chen</span><br />
+                <span class="text-sm text-gray-500">Child Custody Client</span>
+              </footer>
+            </div>
+          </article>
+
+          <article
+            class="testimonial-card grid md:grid-cols-2 items-center gap-12 shadow-xl animate-on-scroll fade-in"
+          >
+            <div class="testimonial-image-wrapper">
+              <img
+                src="images-testmonials/Client 2.png"
+                alt="Portrait of J. Rodriguez"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-8">
+              <div class="star-rating flex mb-4">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                  />
+                </svg>
+              </div>
+              <p class="font-serif text-xl text-gray-800 leading-relaxed mb-6">
+                "As an entrepreneur, I was deeply concerned about protecting my
+                business during my divorce. The firm's expertise in business
+                valuation and asset protection was evident from day one. They
+                were strategic, meticulous, and always one step ahead. I
+                couldn't have asked for better representation."
+              </p>
+              <footer class="font-display text-lg text-logo-blue">
+                <span class="font-bold">J. Rodriguez</span><br />
+                <span class="text-sm text-gray-500">Divorce Client</span>
+              </footer>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-footer text-gray-300">
+      <div class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <img
+              src="images-home/Justivia Logo.png"
+              alt="Justivia Law Firm Logo"
+              class="h-20 w-auto mb-4"
+            />
+            <p class="font-serif text-gray-400">
+              Providing sophisticated, strategic counsel with a deeply human
+              touch during life's most challenging transitions.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-white mb-4">Quick Links</h3>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li>
+                <a href="practice-areas.html" class="footer-link"
+                  >Practice Areas</a
+                >
+              </li>
+              <li>
+                <a href="testimonials.html" class="footer-link">Testimonials</a>
+              </li>
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li>
+                <a href="index.html#contact" class="footer-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-white mb-4">Contact Us</h3>
+            <address class="not-italic space-y-3 text-gray-400">
+              <p>123 Legal Avenue, Suite 400<br />New York, NY 10001</p>
+              <p>
+                Phone:
+                <a href="tel:1234567890" class="hover:text-accent"
+                  >(123) 456-7890</a
+                >
+              </p>
+              <p>
+                Email:
+                <a
+                  href="mailto:contact@justivialaw.com"
+                  class="hover:text-accent"
+                  >contact@justivialaw.com</a
+                >
+              </p>
+            </address>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-white mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="social-icon text-gray-400">
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-icon text-gray-400">
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-icon text-gray-400">
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v2.385z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr class="border-gray-700 my-8" />
+        <div class="text-center text-gray-500">
+          <p class="text-sm">
+            The information on this website is for general information purposes
+            only. Nothing on this site should be taken as legal advice for any
+            individual case or situation. This information is not intended to
+            create, and receipt or viewing does not constitute, an
+            attorney-client relationship.
+          </p>
+          <p class="text-sm mt-2">
+            &copy; 2025 Justivia Law Firm. All Rights Reserved. Attorney
+            Advertising.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- MEGA MENU LOGIC ---
+        const header = document.getElementById("main-header");
+        const practiceAreaTrigger = document.getElementById(
+          "practice-areas-trigger"
+        );
+        const megaMenu = document.getElementById("mega-menu-container");
+        let hideMenuTimeout;
+
+        function showMenu() {
+          clearTimeout(hideMenuTimeout);
+          megaMenu.classList.add("active");
+          practiceAreaTrigger.classList.add("menu-active");
+        }
+
+        function hideMenu() {
+          megaMenu.classList.remove("active");
+          practiceAreaTrigger.classList.remove("menu-active");
+        }
+
+        practiceAreaTrigger.addEventListener("mouseenter", showMenu);
+
+        header.addEventListener("mouseleave", () => {
+          hideMenuTimeout = setTimeout(hideMenu, 200);
+        });
+
+        megaMenu.addEventListener("mouseenter", () => {
+          clearTimeout(hideMenuTimeout);
+        });
+
+        // --- SCROLL ANIMATION LOGIC ---
+        const animatedElements =
+          document.querySelectorAll(".animate-on-scroll");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        animatedElements.forEach((el) => observer.observe(el));
+
+        // --- PRECISE ANCHOR SCROLLING LOGIC (SITE-WIDE) ---
+        const allAnchorLinks = document.querySelectorAll('a[href*="#"]');
+        const mainHeader = document.getElementById("main-header");
+
+        allAnchorLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            const isSamePage =
+              href.startsWith("#") ||
+              href.split("#")[0] ===
+                window.location.pathname.split("/").pop() ||
+              href.split("#")[0] === "";
+
+            if (isSamePage && href.includes("#")) {
+              e.preventDefault();
+              const targetId = href.substring(href.indexOf("#") + 1);
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                const headerHeight = mainHeader.offsetHeight;
+                const targetPosition =
+                  targetElement.getBoundingClientRect().top +
+                  window.pageYOffset;
+
+                window.scrollTo({
+                  top: targetPosition - headerHeight,
+                  behavior: "smooth",
+                });
+              }
+            }
+          });
+        });
+
+        // Initial check for hash on page load (for practice areas)
+        function handlePageLoadScroll() {
+          if (window.location.hash) {
+            const targetId = window.location.hash.substring(1);
+            setTimeout(() => {
+              const targetElement = document.getElementById(targetId);
+              if (targetElement) {
+                const headerHeight = mainHeader.offsetHeight;
+                const targetPosition =
+                  targetElement.getBoundingClientRect().top +
+                  window.pageYOffset;
+
+                window.scrollTo({
+                  top: targetPosition - headerHeight,
+                  behavior: "smooth",
+                });
+              }
+            }, 100);
+          }
+        }
+        handlePageLoadScroll();
+      });
+    </script>
+  </body>
+</html>

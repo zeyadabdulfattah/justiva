@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Justivia Law Firm | Where Justice Meets Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Lora:wght@400;600;700&family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #fdfdfd;
+        color: #343a40;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+      .font-serif {
+        font-family: "Lora", serif;
+      }
+      .bg-primary {
+        background-color: #0d1b2a;
+      }
+      .text-primary-dark {
+        color: #0d1b2a;
+      }
+      .bg-secondary {
+        background-color: #f1f1f1;
+      }
+      .bg-accent {
+        background-color: #c9b47f;
+      }
+      .text-accent {
+        color: #c9b47f;
+      }
+      .border-accent {
+        border-color: #c9b47f;
+      }
+      .bg-logo-blue {
+        background-color: #1a2a44;
+      }
+      .text-logo-blue {
+        color: #1a2a44;
+      }
+      /* High-End Button System */
+      .btn {
+        display: inline-block;
+        font-family: "Cormorant Garamond", serif;
+        padding: 0.8rem 2.5rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+        text-align: center;
+        font-size: 0.9rem;
+        border: 2px solid transparent;
+      }
+      .btn-primary {
+        background-color: #c9b47f;
+        color: #1a2a44;
+        border-color: #c9b47f;
+      }
+      .btn-primary:hover {
+        background-color: #1a2a44;
+        color: #ffffff;
+        border-color: #1a2a44;
+      }
+      .btn-secondary {
+        background-color: transparent;
+        border-color: #c9b47f;
+      }
+      .btn-secondary:hover {
+        background-color: #c9b47f;
+        color: #1a2a44;
+      }
+      /* Enhanced Nav Link Style for Light BG */
+      .nav-link {
+        font-family: "Cormorant Garamond", serif;
+        position: relative;
+        padding-bottom: 6px;
+        transition: color 0.3s;
+        color: #1a2a44; /* Color from logo */
+        font-weight: 600;
+        letter-spacing: 0.1em; /* Increased letter spacing */
+        font-size: 1.125rem; /* Larger font size */
+        text-transform: uppercase;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #c9b47f;
+        transition: width 0.3s ease-in-out;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .nav-link:hover {
+        color: #c9b47f;
+      }
+
+      /* Mega Menu Styles */
+      #mega-menu-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out,
+          visibility 0.5s;
+      }
+      #mega-menu-container.active {
+        max-height: 500px; /* Adjust as needed */
+        opacity: 1;
+        visibility: visible;
+      }
+      .mega-menu-link {
+        font-family: "Lora", serif;
+        color: #1a2a44;
+        transition: color 0.3s, transform 0.3s;
+        display: block;
+        padding: 0.5rem 0;
+      }
+      .mega-menu-link:hover {
+        color: #c9b47f;
+        transform: translateX(5px);
+      }
+
+      /* Arrow animation for practice areas link */
+      #practice-areas-trigger.menu-active svg {
+        transform: rotate(180deg);
+      }
+
+      .hero-video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+      #heroVideo {
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+      }
+      .hero-overlay {
+        background-color: rgba(13, 27, 42, 0.7);
+      }
+      .animate-on-scroll {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in {
+        transform: translateY(30px);
+      }
+      .slide-in-left {
+        transform: translateX(-50px);
+      }
+      .slide-in-right {
+        transform: translateX(50px);
+      }
+      .is-visible {
+        opacity: 1;
+        transform: none;
+      }
+      /* Styles for rotating text */
+      #rotating-text {
+        display: inline-block;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      }
+      #rotating-text.exit {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      /* Style for the Welcome section background */
+      #why-choose-us {
+        position: relative;
+        z-index: 1;
+      }
+      #why-choose-us::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("images-home/welcome-section.png");
+        background-repeat: repeat;
+        opacity: 0.25;
+        z-index: -1;
+      }
+
+      /* Legal Services Section Styles */
+      #legal-services {
+        position: relative;
+        overflow: hidden;
+        background-color: #1a2a44; /* Fallback background */
+      }
+      .service-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 0.7s ease-in-out;
+        opacity: 0;
+        z-index: 0;
+      }
+      .service-bg-image.active {
+        opacity: 0.2;
+      }
+      .service-menu-item {
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+      }
+      .service-menu-item.active {
+        color: #c9b47f; /* Accent color */
+        transform: translateX(10px);
+      }
+      .service-content {
+        display: none;
+      }
+      .service-content.visible {
+        display: block;
+      }
+      .service-section-container {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+      .service-section-container.is-visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .content-heading,
+      .content-body {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      }
+      .service-content.visible .content-heading,
+      .service-content.visible .content-body {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .content-body {
+        transition-delay: 0.15s;
+      }
+      .content-heading::before {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 2px;
+        background-color: #c9b47f;
+        margin-bottom: 1.5rem;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.6s ease-out;
+      }
+      .service-content.visible .content-heading::before {
+        transform: scaleX(1);
+        transition-delay: 0.2s;
+      }
+
+      /* Discuss Section - New Styles */
+      #discuss-section {
+        position: relative;
+        overflow: hidden;
+      }
+      .discuss-bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%; /* Increase height for parallax effect */
+        background-image: url("images-discuss/balance.png");
+        background-size: cover;
+        background-position: center;
+        clip-path: inset(0 100% 0 0);
+        transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 0;
+      }
+      #discuss-section.is-revealed .discuss-bg-image {
+        clip-path: inset(0 0 0 0);
+      }
+      .discuss-text-container {
+        position: relative;
+        transition-delay: 0.3s; /* Delay for the text fade-in */
+      }
+      .discuss-watermark {
+        position: absolute;
+        top: -2rem;
+        left: -1rem;
+        font-size: 10rem;
+        font-weight: 700;
+        color: #ffffff;
+        opacity: 0.08;
+        z-index: 1;
+        line-height: 1;
+        user-select: none;
+      }
+
+      /* Contact Form Section */
+      #contact {
+        position: relative;
+      }
+      .contact-watermark {
+        position: absolute;
+        top: -2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 8rem;
+        line-height: 1;
+        font-weight: 700;
+        color: #000;
+        opacity: 0.04;
+        z-index: 0;
+        user-select: none;
+        white-space: nowrap;
+      }
+      .form-input {
+        background-color: #4a5568; /* Dark charcoal color */
+        border: 2px solid transparent;
+        color: white;
+        transition: all 0.3s ease-in-out;
+        border-radius: 0; /* Sharp corners */
+      }
+      .form-input::placeholder {
+        color: #a0aec0; /* Lighter grey for placeholder */
+      }
+      .form-input:focus {
+        border-color: #c9b47f;
+        background-color: #2d3748; /* Slightly lighter charcoal on focus */
+        box-shadow: none;
+      }
+      .notice-list li {
+        position: relative;
+        padding-left: 1.75rem;
+      }
+      .notice-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #c9b47f;
+        font-weight: 600;
+      }
+      /* --- NEW FOOTER STYLES --- */
+      .bg-footer {
+        background-color: #0a1421; /* Darker navy blue */
+      }
+      .footer-link {
+        position: relative;
+        display: inline-block;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .footer-link:hover {
+        color: #c9b47f; /* Accent color */
+        transform: translateX(4px);
+      }
+      .social-icon {
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .social-icon:hover {
+        color: #c9b47f; /* Accent color */
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <div class="bg-logo-blue text-center py-3">
+      <span class="font-semibold text-white text-lg tracking-wider"
+        >Call Us Today: (713) 936-0783</span
+      >
+    </div>
+
+    <header
+      id="main-header"
+      class="bg-white text-primary-dark sticky top-0 z-50 shadow-lg"
+    >
+      <div
+        class="container mx-auto px-6 flex justify-between items-center relative"
+      >
+        <a href="index.html" title="Justivia Law Firm Homepage">
+          <img
+            src="images-home/Justivia Logo.png"
+            alt="Justivia Law Firm Logo"
+            class="h-40 w-auto"
+          />
+        </a>
+        <nav class="hidden md:flex space-x-12 items-center">
+          <a href="index.html" class="nav-link">Home</a>
+          <a
+            href="practice-areas.html"
+            id="practice-areas-trigger"
+            class="nav-link flex items-center"
+          >
+            <span>Practice Areas</span>
+            <svg
+              class="w-4 h-4 ml-2 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </a>
+          <a href="testimonials.html" class="nav-link">Testimonials</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="#contact" class="btn btn-secondary text-accent">Contact</a>
+        </nav>
+        <button class="md:hidden text-2xl">☰</button>
+      </div>
+
+      <div id="mega-menu-container">
+        <div
+          class="container mx-auto px-6 py-8 grid grid-cols-3 gap-x-8 gap-y-4"
+        >
+          <a href="practice-areas.html#divorce" class="mega-menu-link"
+            >Divorce & Separation</a
+          >
+          <a href="practice-areas.html#custody" class="mega-menu-link"
+            >Child Custody & Support</a
+          >
+          <a href="practice-areas.html#assets" class="mega-menu-link"
+            >Complex Asset Division</a
+          >
+          <a href="practice-areas.html#alimony" class="mega-menu-link"
+            >Alimony & Spousal Support</a
+          >
+          <a href="practice-areas.html#prenup" class="mega-menu-link"
+            >Prenuptial Agreements</a
+          >
+          <a href="practice-areas.html#adoption" class="mega-menu-link"
+            >Adoption Services</a
+          >
+          <a href="practice-areas.html#dv" class="mega-menu-link"
+            >Domestic Violence Orders</a
+          >
+          <a href="practice-areas.html#mediation" class="mega-menu-link"
+            >Mediation & Collaborative Law</a
+          >
+          <a href="practice-areas.html#paternity" class="mega-menu-link"
+            >Paternity & Father's Rights</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        id="home"
+        class="relative text-white h-[70vh] flex items-center justify-center text-center"
+      >
+        <div class="hero-video-container">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            id="heroVideo"
+            poster="images-video/Law_Firm_Hero_Video_Generated.mp4"
+          >
+            <source
+              src="images-video/Law_Firm_Hero_Video_Generated.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full hero-overlay"></div>
+        <div class="relative z-10 p-6">
+          <h1
+            class="text-4xl md:text-6xl font-display mb-8 animate-on-scroll fade-in"
+          >
+            <span id="rotating-text">Family Law Counsel</span>
+          </h1>
+          <a
+            href="#contact"
+            class="btn btn-secondary text-white animate-on-scroll fade-in"
+            style="transition-delay: 200ms"
+          >
+            Schedule Consultation
+          </a>
+        </div>
+      </section>
+
+      <section id="why-choose-us" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-20 lg:items-start">
+            <div
+              class="lg:sticky lg:top-24 animate-on-scroll fade-in mb-12 lg:mb-0"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80"
+                alt="A welcoming and professional law office environment"
+                class="rounded-lg shadow-2xl object-cover w-full h-auto"
+              />
+            </div>
+
+            <div class="space-y-16">
+              <div class="animate-on-scroll fade-in">
+                <h2
+                  class="text-4xl md:text-5xl font-display text-logo-blue mb-6"
+                >
+                  A Foundation of Trust & Discretion
+                </h2>
+                <div class="w-24 h-1 bg-accent mb-6"></div>
+                <p
+                  class="font-serif text-lg text-gray-700 leading-relaxed mb-4"
+                >
+                  Welcome to Justivia Law Firm. We understand that when you seek
+                  counsel for a family matter, you are placing your future, and
+                  that of your loved ones, in our hands. This is a
+                  responsibility we hold with the utmost reverence. Our practice
+                  was founded on the bedrock principles of integrity,
+                  discretion, and an unwavering commitment to our clients'
+                  well-being. We are more than legal representatives; we are
+                  your dedicated advocates in times of profound change.
+                </p>
+                <p class="font-serif text-lg text-gray-700 leading-relaxed">
+                  Here, you will not find a one-size-fits-all approach. Instead,
+                  you will find a team of seasoned attorneys who invest the time
+                  to understand the intricate details of your unique
+                  circumstances, ensuring that our strategy is as individual as
+                  you are.
+                </p>
+              </div>
+
+              <div
+                class="animate-on-scroll fade-in"
+                style="transition-delay: 200ms"
+              >
+                <h3 class="text-3xl font-display text-logo-blue mb-4">
+                  Our Guiding Philosophy
+                </h3>
+                <p
+                  class="font-serif text-lg text-gray-700 leading-relaxed mb-4"
+                >
+                  Our philosophy is simple: to provide sophisticated, strategic
+                  counsel with a deeply human touch. We navigate the
+                  complexities of the legal system so you can focus on
+                  navigating your life. We believe in proactive communication,
+                  ensuring you are never left in the dark. We champion
+                  resolutions through mediation and collaborative law whenever
+                  possible, yet we are formidable litigators, fully prepared to
+                  protect your interests in court when necessary.
+                </p>
+                <p class="font-serif text-lg text-gray-700 leading-relaxed">
+                  This dual approach—compassionate guidance and tenacious
+                  advocacy—is the hallmark of our firm and the reason discerning
+                  clients choose us to safeguard their most vital interests.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="legal-services" class="relative text-white">
+        <div id="services-bg-container" class="absolute inset-0 z-0">
+          <div
+            class="service-bg-image active"
+            style="background-image: url('images-LegalServices/Divorce.png')"
+            data-bg-for="service-1"
+          ></div>
+          <div
+            class="service-bg-image"
+            style="background-image: url('images-LegalServices/Child.png')"
+            data-bg-for="service-2"
+          ></div>
+          <div
+            class="service-bg-image"
+            style="background-image: url('images-LegalServices/Assets.png')"
+            data-bg-for="service-3"
+          ></div>
+          <div
+            class="service-bg-image"
+            style="background-image: url('images-LegalServices/Spousal.png')"
+            data-bg-for="service-4"
+          ></div>
+        </div>
+
+        <div
+          class="container mx-auto px-6 py-24 relative z-20 service-section-container"
+        >
+          <div class="grid lg:grid-cols-2 gap-16">
+            <div>
+              <h2 class="text-4xl md:text-5xl font-display mb-8 text-white">
+                Our Legal Services
+              </h2>
+              <div class="space-y-6">
+                <div class="service-menu-item active" data-target="service-1">
+                  <h3 class="text-2xl font-display">High-Net-Worth Divorce</h3>
+                </div>
+                <div class="service-menu-item" data-target="service-2">
+                  <h3 class="text-2xl font-display">Child Custody & Support</h3>
+                </div>
+                <div class="service-menu-item" data-target="service-3">
+                  <h3 class="text-2xl font-display">Complex Asset Division</h3>
+                </div>
+                <div class="service-menu-item" data-target="service-4">
+                  <h3 class="text-2xl font-display">
+                    Alimony & Spousal Support
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center min-h-[250px]">
+              <div>
+                <div id="service-1" class="service-content visible">
+                  <h3 class="content-heading text-3xl font-display text-accent">
+                    Navigating Complex Financial Estates
+                  </h3>
+                  <p class="content-body font-serif text-lg leading-relaxed">
+                    We specialize in high-net-worth divorce cases, meticulously
+                    handling complex asset division, business valuations, and
+                    financial portfolios with the utmost discretion and
+                    strategic acumen.
+                  </p>
+                </div>
+                <div id="service-2" class="service-content">
+                  <h3 class="content-heading text-3xl font-display text-accent">
+                    Protecting Your Children's Future
+                  </h3>
+                  <p class="content-body font-serif text-lg leading-relaxed">
+                    Our primary goal in any custody case is to protect the
+                    well-being of your children. We provide compassionate and
+                    firm representation to establish fair and sustainable
+                    custody and support arrangements.
+                  </p>
+                </div>
+                <div id="service-3" class="service-content">
+                  <h3 class="content-heading text-3xl font-display text-accent">
+                    Equitable Distribution of Assets
+                  </h3>
+                  <p class="content-body font-serif text-lg leading-relaxed">
+                    We handle the division of marital estates with precision,
+                    addressing everything from real estate and investments to
+                    retirement accounts and intellectual property, ensuring a
+                    fair and equitable outcome.
+                  </p>
+                </div>
+                <div id="service-4" class="service-content">
+                  <h3 class="content-heading text-3xl font-display text-accent">
+                    Securing Your Financial Stability
+                  </h3>
+                  <p class="content-body font-serif text-lg leading-relaxed">
+                    We advocate for fair spousal support and alimony agreements
+                    that reflect the financial realities of the marriage and
+                    ensure our clients' long-term financial security and
+                    independence.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="discuss-section"
+        class="relative overflow-hidden bg-white py-24"
+      >
+        <div class="discuss-bg-image"></div>
+        <div class="container mx-auto relative z-10">
+          <div class="grid lg:grid-cols-2 items-center">
+            <div
+              class="p-8 md:p-16 relative discuss-text-container animate-on-scroll fade-in"
+            >
+              <div class="discuss-watermark font-display">DISCUSS</div>
+              <h2
+                class="text-4xl md:text-5xl font-display text-white mb-6 relative whitespace-nowrap"
+              >
+                Discuss Your Legal Needs
+              </h2>
+              <p
+                class="font-serif text-lg text-white leading-relaxed mb-4 relative"
+              >
+                Please contact our firm today to discuss your legal needs. When
+                you connect with us, you will discover why Justivia Law Firm
+                should be your choice for your family law case, whether here in
+                Texas or across the country.
+              </p>
+              <p
+                class="font-serif text-lg text-white leading-relaxed mb-6 relative"
+              >
+                Your call will connect you with an experienced attorney for a
+                confidential, free consultation. Our firm is founded on
+                providing the level of representation and access to premier
+                legal services that our clients deserve.
+              </p>
+              <a href="#contact" class="btn btn-primary relative"
+                >Schedule Consultation</a
+              >
+            </div>
+            <div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-24 bg-secondary">
+        <div class="container mx-auto px-6">
+          <div class="relative text-center mb-16">
+            <div class="contact-watermark font-display">CONTACT US</div>
+            <h2
+              class="text-4xl md:text-5xl font-display text-logo-blue relative"
+            >
+              Online Contact Form
+            </h2>
+            <p
+              class="text-lg mt-4 max-w-3xl mx-auto font-serif text-gray-600 relative"
+            >
+              Complete this online form now and your inquiry will be instantly
+              received.
+            </p>
+          </div>
+          <div class="grid lg:grid-cols-2 gap-16">
+            <div class="animate-on-scroll slide-in-left">
+              <form action="#" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="first-name" class="sr-only">First Name</label>
+                    <input
+                      type="text"
+                      name="first-name"
+                      id="first-name"
+                      placeholder="First Name"
+                      class="form-input w-full p-4 text-lg"
+                    />
+                  </div>
+                  <div>
+                    <label for="last-name" class="sr-only">Last Name</label>
+                    <input
+                      type="text"
+                      name="last-name"
+                      id="last-name"
+                      placeholder="Last Name"
+                      class="form-input w-full p-4 text-lg"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label for="email" class="sr-only">Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email Address"
+                    class="form-input w-full p-4 text-lg"
+                  />
+                </div>
+                <div>
+                  <label for="phone" class="sr-only">Phone Number</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    placeholder="Phone Number"
+                    class="form-input w-full p-4 text-lg"
+                  />
+                </div>
+                <div>
+                  <label for="message" class="sr-only"
+                    >Enter Your Message</label
+                  >
+                  <textarea
+                    name="message"
+                    id="message"
+                    rows="6"
+                    placeholder="Enter Your Message..."
+                    class="form-input w-full p-4 text-lg"
+                  ></textarea>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary w-full text-lg">
+                    Submit Inquiry
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="animate-on-scroll slide-in-right">
+              <div class="bg-white p-8 shadow-lg h-full">
+                <h3 class="text-2xl font-display text-logo-blue mb-4">
+                  Attorney-Client Relationship Notice
+                </h3>
+                <p class="font-serif text-gray-700 mb-6">
+                  By submitting an online or email inquiry, you agree:
+                </p>
+                <ul class="space-y-4 font-serif text-gray-700 notice-list">
+                  <li>You will NOT be charged for the initial response.</li>
+                  <li>
+                    You are forming ONLY a semi-confidential relationship.
+                  </li>
+                  <li>
+                    Justivia Law Firm is NOT agreeing to represent you in any
+                    matter until an agreement is signed by yourself AND the
+                    firm.
+                  </li>
+                  <li>
+                    Your submission is NOT a request for legal advice and you
+                    are not forming an attorney-client relationship.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-footer text-gray-300">
+      <div class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <img
+              src="images-home/Justivia Logo.png"
+              alt="Justivia Law Firm Logo"
+              class="h-20 w-auto mb-4"
+            />
+            <p class="font-serif text-gray-400">
+              Providing sophisticated, strategic counsel with a deeply human
+              touch during life's most challenging transitions.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-white mb-4">Quick Links</h3>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li>
+                <a href="practice-areas.html" class="footer-link"
+                  >Practice Areas</a
+                >
+              </li>
+              <li>
+                <a href="testimonials.html" class="footer-link">Testimonials</a>
+              </li>
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li>
+                <a href="index.html#contact" class="footer-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-white mb-4">Contact Us</h3>
+            <address class="not-italic space-y-3 text-gray-400">
+              <p>123 Legal Avenue, Suite 400<br />New York, NY 10001</p>
+              <p>
+                Phone:
+                <a href="tel:1234567890" class="hover:text-accent"
+                  >(123) 456-7890</a
+                >
+              </p>
+              <p>
+                Email:
+                <a
+                  href="mailto:contact@justivialaw.com"
+                  class="hover:text-accent"
+                  >contact@justivialaw.com</a
+                >
+              </p>
+            </address>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-white mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="social-icon text-gray-400">
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-icon text-gray-400">
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-icon text-gray-400">
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v2.385z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr class="border-gray-700 my-8" />
+        <div class="text-center text-gray-500">
+          <p class="text-sm">
+            The information on this website is for general information purposes
+            only. Nothing on this site should be taken as legal advice for any
+            individual case or situation. This information is not intended to
+            create, and receipt or viewing does not constitute, an
+            attorney-client relationship.
+          </p>
+          <p class="text-sm mt-2">
+            &copy; 2025 Justivia Law Firm. All Rights Reserved. Attorney
+            Advertising.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- MEGA MENU LOGIC ---
+        const header = document.getElementById("main-header");
+        const practiceAreaTrigger = document.getElementById(
+          "practice-areas-trigger"
+        );
+        const megaMenu = document.getElementById("mega-menu-container");
+        let hideMenuTimeout;
+
+        function showMenu() {
+          clearTimeout(hideMenuTimeout);
+          megaMenu.classList.add("active");
+          practiceAreaTrigger.classList.add("menu-active");
+        }
+
+        function hideMenu() {
+          megaMenu.classList.remove("active");
+          practiceAreaTrigger.classList.remove("menu-active");
+        }
+
+        practiceAreaTrigger.addEventListener("mouseenter", showMenu);
+
+        header.addEventListener("mouseleave", () => {
+          hideMenuTimeout = setTimeout(hideMenu, 200);
+        });
+
+        megaMenu.addEventListener("mouseenter", () => {
+          clearTimeout(hideMenuTimeout);
+        });
+
+        // --- SCROLL ANIMATION LOGIC ---
+        const animatedElements = document.querySelectorAll(
+          ".animate-on-scroll, .service-section-container"
+        );
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        animatedElements.forEach((el) => observer.observe(el));
+
+        // --- DELAYED OBSERVER FOR DISCUSS SECTION ---
+        const discussSection = document.getElementById("discuss-section");
+        const discussObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-revealed");
+              }
+            });
+          },
+          { threshold: 0.4 } // Balanced threshold
+        );
+        if (discussSection) {
+          discussObserver.observe(discussSection);
+        }
+
+        // --- HERO ELEMENTS IMMEDIATE ANIMATION ---
+        const heroElements = document.querySelectorAll(
+          "#home .animate-on-scroll"
+        );
+        heroElements.forEach((el) =>
+          setTimeout(() => el.classList.add("is-visible"), 100)
+        );
+
+        // --- ROTATING HERO TEXT LOGIC ---
+        const rotatingTextElement = document.getElementById("rotating-text");
+        if (rotatingTextElement) {
+          const phrases = [
+            "Family Law Counsel",
+            "Divorce & Separation",
+            "Child Custody & Visitation",
+            "Property & Asset Division",
+            "Spousal Support & Alimony",
+            "Guardianship & Parental Rights",
+            "Domestic Violence Protection",
+            "Mediation & Dispute Resolution",
+          ];
+          let currentPhraseIndex = 0;
+          setInterval(() => {
+            rotatingTextElement.classList.add("exit");
+            setTimeout(() => {
+              currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+              rotatingTextElement.textContent = phrases[currentPhraseIndex];
+              rotatingTextElement.style.transform = "translateY(20px)";
+              setTimeout(() => {
+                rotatingTextElement.classList.remove("exit");
+                rotatingTextElement.style.transform = "translateY(0)";
+              }, 50);
+            }, 500);
+          }, 3000);
+        }
+
+        // --- LEGAL SERVICES DYNAMIC BACKGROUND LOGIC ---
+        const menuItems = document.querySelectorAll(".service-menu-item");
+        const contentPanels = document.querySelectorAll(".service-content");
+        const bgImages = document.querySelectorAll(".service-bg-image");
+        let serviceRotationInterval;
+        let userHasInteracted = false;
+        let currentServiceIndex = 0;
+
+        function activateService(target) {
+          menuItems.forEach((m) => m.classList.remove("active"));
+          const activeMenuItem = document.querySelector(
+            `.service-menu-item[data-target="${target}"]`
+          );
+          if (activeMenuItem) activeMenuItem.classList.add("active");
+
+          contentPanels.forEach((panel) => {
+            panel.classList.toggle("visible", panel.id === target);
+          });
+
+          bgImages.forEach((img) => {
+            img.classList.toggle(
+              "active",
+              img.getAttribute("data-bg-for") === target
+            );
+          });
+        }
+
+        function startServiceRotation() {
+          if (userHasInteracted) return;
+          serviceRotationInterval = setInterval(() => {
+            currentServiceIndex = (currentServiceIndex + 1) % menuItems.length;
+            const nextTarget =
+              menuItems[currentServiceIndex].getAttribute("data-target");
+            activateService(nextTarget);
+          }, 3000);
+        }
+
+        // Start the rotation initially
+        startServiceRotation();
+
+        menuItems.forEach((item) => {
+          item.addEventListener("mouseover", () => {
+            if (!userHasInteracted) {
+              clearInterval(serviceRotationInterval);
+              userHasInteracted = true;
+            }
+            const target = item.getAttribute("data-target");
+            activateService(target);
+          });
+        });
+
+        // --- PARALLAX SCROLL FOR DISCUSS SECTION ---
+        if (discussSection) {
+          const discussBgImage =
+            discussSection.querySelector(".discuss-bg-image");
+          window.addEventListener("scroll", () => {
+            if (discussSection.classList.contains("is-revealed")) {
+              const rect = discussSection.getBoundingClientRect();
+              if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const speed = 0.4;
+                const yOffset = -rect.top * speed;
+                discussBgImage.style.transform = `translateY(${yOffset}px)`;
+              }
+            }
+          });
+        }
+
+        // --- PRECISE ANCHOR SCROLLING LOGIC (SITE-WIDE) ---
+        const allAnchorLinks = document.querySelectorAll('a[href*="#"]');
+        const mainHeader = document.getElementById("main-header");
+
+        allAnchorLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            const isSamePage =
+              href.startsWith("#") ||
+              href.split("#")[0] ===
+                window.location.pathname.split("/").pop() ||
+              href.split("#")[0] === "";
+
+            if (isSamePage && href.includes("#")) {
+              e.preventDefault();
+              const targetId = href.substring(href.indexOf("#") + 1);
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                const headerHeight = mainHeader.offsetHeight;
+                const targetPosition =
+                  targetElement.getBoundingClientRect().top +
+                  window.pageYOffset;
+
+                window.scrollTo({
+                  top: targetPosition - headerHeight,
+                  behavior: "smooth",
+                });
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

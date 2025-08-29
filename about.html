@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF--8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Amelia Justivia | Justivia Law Firm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Lora:wght@400;600;700&family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0d1b2a; /* Dark blue-black for a premium feel */
+        color: #f8f9fa;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+      .font-serif {
+        font-family: "Lora", serif;
+      }
+      .bg-primary {
+        background-color: #0d1b2a;
+      }
+      .text-primary-dark {
+        color: #0d1b2a;
+      }
+      .bg-secondary {
+        background-color: #f8f9fa;
+      }
+      .bg-accent {
+        background-color: #c9b47f;
+      }
+      .text-accent {
+        color: #c9b47f;
+      }
+      .border-accent {
+        border-color: #c9b47f;
+      }
+      .bg-logo-blue {
+        background-color: #1a2a44;
+      }
+      .text-logo-blue {
+        color: #1a2a44;
+      }
+
+      /* Base Nav Styles (for consistency) */
+      .nav-link {
+        font-family: "Cormorant Garamond", serif;
+        position: relative;
+        padding-bottom: 6px;
+        transition: color 0.3s;
+        color: #1a2a44;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        font-size: 1.125rem;
+        text-transform: uppercase;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #c9b47f;
+        transition: width 0.3s ease-in-out;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .nav-link:hover {
+        color: #c9b47f;
+      }
+      #mega-menu-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out,
+          visibility 0.5s;
+      }
+      #mega-menu-container.active {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+      }
+      .mega-menu-link {
+        font-family: "Lora", serif;
+        color: #1a2a44;
+        transition: color 0.3s, transform 0.3s;
+        display: block;
+        padding: 0.5rem 0;
+      }
+      .mega-menu-link:hover {
+        color: #c9b47f;
+        transform: translateX(5px);
+      }
+      #practice-areas-trigger.menu-active svg {
+        transform: rotate(180deg);
+      }
+      .btn {
+        display: inline-block;
+        font-family: "Cormorant Garamond", serif;
+        padding: 0.8rem 2.5rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+        text-align: center;
+        font-size: 0.9rem;
+        border: 2px solid transparent;
+      }
+      .btn-secondary {
+        background-color: transparent;
+        border-color: #c9b47f;
+        color: #c9b47f;
+      }
+      .btn-secondary:hover {
+        background-color: #c9b47f;
+        color: #1a2a44;
+      }
+      .btn-primary {
+        background-color: #c9b47f;
+        color: #1a2a44;
+        border-color: #c9b47f;
+      }
+      .btn-primary:hover {
+        background-color: #1a2a44;
+        color: #ffffff;
+        border-color: #1a2a44;
+      }
+
+      /* Hero Entrance Animation Styles */
+      .animate-on-load {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .slide-in-left {
+        transform: translateX(-40px);
+      }
+      .slide-in-right {
+        transform: translateX(40px);
+      }
+      .animate-on-load.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Generic Scroll Animation System */
+      .animate-on-scroll {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .animate-slide-up {
+        transform: translateY(50px);
+      }
+      .animate-pop-in {
+        transform: scale(0.9);
+      }
+      .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: none; /* Resets both translate and scale to default */
+      }
+
+      /* About Page Scrollytelling Styles */
+      .timeline-path {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 2rem;
+        width: 2px;
+        background-color: rgba(201, 180, 127, 0.2);
+        z-index: 0;
+      }
+      #timeline-path-progress {
+        width: 100%;
+        background: #c9b47f;
+        height: 0;
+      }
+
+      .timeline-chapter {
+        position: relative;
+        padding-left: 5rem;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+      }
+      .timeline-chapter:last-child {
+        padding-bottom: 2rem;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        top: calc(8rem + 1.25rem); /* Align with first line of title */
+        left: 2rem;
+        width: 1rem;
+        height: 1rem;
+        background: #c9b47f;
+        border-radius: 50%;
+        transform: translateX(-50%) scale(0);
+        z-index: 1;
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .story-card {
+        perspective: 1500px;
+      }
+
+      .story-card.is-visible .timeline-dot {
+        transform: translateX(-50%) scale(1);
+      }
+
+      .story-card-content {
+        transition: transform 0.5s ease-out;
+      }
+
+      .story-card-content > * {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .story-card.is-visible .story-card-content > *:nth-child(1) {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s;
+      }
+      .story-card.is-visible .story-card-content > *:nth-child(2) {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.35s;
+      }
+      .story-card.is-visible .story-card-content > *:nth-child(3) {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.5s;
+      }
+      .story-card-content h2 {
+        position: relative;
+        padding-bottom: 0.75rem;
+      }
+      .story-card-content h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 2px;
+        background-color: #c9b47f;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .story-card.is-visible .story-card-content h2::after {
+        transform: scaleX(1);
+        transition-delay: 0.6s;
+      }
+      /* --- NEW FOOTER STYLES --- */
+      .bg-footer {
+        background-color: #0a1421; /* Darker navy blue */
+      }
+      .footer-link {
+        position: relative;
+        display: inline-block;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .footer-link:hover {
+        color: #c9b47f; /* Accent color */
+        transform: translateX(4px);
+      }
+      .social-icon {
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .social-icon:hover {
+        color: #c9b47f; /* Accent color */
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body class="bg-primary">
+    <header
+      id="main-header"
+      class="bg-white text-primary-dark sticky top-0 z-50 shadow-lg"
+    >
+      <div
+        class="container mx-auto px-6 flex justify-between items-center relative"
+      >
+        <a href="index.html" title="Justivia Law Firm Homepage"
+          ><img
+            src="images-home/Justivia Logo.png"
+            alt="Justivia Law Firm Logo"
+            class="h-40 w-auto"
+        /></a>
+        <nav class="hidden md:flex space-x-12 items-center">
+          <a href="index.html" class="nav-link">Home</a>
+          <a
+            href="practice-areas.html"
+            id="practice-areas-trigger"
+            class="nav-link flex items-center"
+          >
+            <span>Practice Areas</span>
+            <svg
+              class="w-4 h-4 ml-2 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </a>
+          <a href="testimonials.html" class="nav-link">Testimonials</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="index.html#contact" class="btn btn-secondary text-accent"
+            >Contact</a
+          >
+        </nav>
+        <button class="md:hidden text-2xl">☰</button>
+      </div>
+      <div id="mega-menu-container">
+        <div
+          class="container mx-auto px-6 py-8 grid grid-cols-3 gap-x-8 gap-y-4"
+        >
+          <a href="practice-areas.html#divorce" class="mega-menu-link"
+            >Divorce & Separation</a
+          >
+          <a href="practice-areas.html#custody" class="mega-menu-link"
+            >Child Custody & Support</a
+          >
+          <a href="practice-areas.html#assets" class="mega-menu-link"
+            >Complex Asset Division</a
+          >
+          <a href="practice-areas.html#alimony" class="mega-menu-link"
+            >Alimony & Spousal Support</a
+          >
+          <a href="practice-areas.html#prenup" class="mega-menu-link"
+            >Prenuptial Agreements</a
+          >
+          <a href="practice-areas.html#adoption" class="mega-menu-link"
+            >Adoption Services</a
+          >
+          <a href="practice-areas.html#dv" class="mega-menu-link"
+            >Domestic Violence Orders</a
+          >
+          <a href="practice-areas.html#mediation" class="mega-menu-link"
+            >Mediation & Collaborative Law</a
+          >
+          <a href="practice-areas.html#paternity" class="mega-menu-link"
+            >Paternity & Father's Rights</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about-hero" class="bg-primary overflow-hidden">
+        <div
+          class="container mx-auto px-6 min-h-screen grid grid-cols-1 md:grid-cols-2 items-center gap-12"
+        >
+          <div class="text-center md:text-left animate-on-load slide-in-left">
+            <p class="font-serif text-accent text-xl">The Founder's Journey</p>
+            <h1 class="text-5xl md:text-8xl font-display text-white">
+              Amelia Justivia
+            </h1>
+          </div>
+          <div
+            class="flex items-center justify-center animate-on-load slide-in-right"
+            style="transition-delay: 200ms"
+          >
+            <img
+              src="images-about/founder.png"
+              alt="Portrait of Amelia Justivia, Founder of Justivia Law Firm"
+              class="max-w-md w-full h-auto object-cover rounded-sm"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="relative">
+        <div class="timeline-path"><div id="timeline-path-progress"></div></div>
+        <div class="container mx-auto max-w-4xl px-6">
+          <div
+            class="timeline-chapter story-card animate-on-scroll animate-slide-up"
+          >
+            <div class="timeline-dot"></div>
+            <div class="story-card-content">
+              <p class="text-accent font-serif mb-2">2009 - 2015</p>
+              <h2 class="font-display text-4xl md:text-5xl mb-4 text-white">
+                Forged in the Courtroom
+              </h2>
+              <p
+                class="font-serif text-lg text-gray-300 leading-relaxed max-w-2xl"
+              >
+                In the competitive arena of a large metropolitan firm, Amelia
+                honed her skills as a litigator. She earned a reputation for
+                being a tenacious advocate, yet always sought the most
+                compassionate and constructive path for her clients, mastering
+                the dual arts of negotiation and litigation.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="timeline-chapter story-card animate-on-scroll animate-slide-up"
+          >
+            <div class="timeline-dot"></div>
+            <div class="story-card-content">
+              <p class="text-accent font-serif mb-2">2016 - 2025</p>
+              <h2 class="font-display text-4xl md:text-5xl mb-4 text-white">
+                A Vision Realized
+              </h2>
+              <p
+                class="font-serif text-lg text-gray-300 leading-relaxed max-w-2xl"
+              >
+                Driven by a desire to provide a more personal, client-centric
+                service, Amelia founded Justivia Law. Her vision was to create a
+                boutique firm that combined the resources of a large practice
+                with the tailored, compassionate approach every family law case
+                deserves—a vision she has spent a decade perfecting.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="timeline-chapter story-card animate-on-scroll animate-slide-up"
+          >
+            <div class="timeline-dot"></div>
+            <div class="story-card-content">
+              <p class="text-accent font-serif mb-2">The Philosophy</p>
+              <h2 class="font-display text-4xl md:text-5xl mb-4 text-white">
+                Strength & Strategy
+              </h2>
+              <p
+                class="font-serif text-lg text-gray-300 leading-relaxed max-w-2xl"
+              >
+                "True advocacy is not just about winning. It's about providing a
+                pillar of strength, a clear strategy, and a path forward during
+                life's most uncertain times." This principle is the cornerstone
+                of our firm and the promise we make to every client we are
+                honored to represent.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 animate-on-scroll animate-pop-in">
+        <div class="container mx-auto px-6 text-center text-white">
+          <h2 class="text-4xl font-display mb-4">
+            Begin Your Own Success Story
+          </h2>
+          <p class="font-serif text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+            Your peace of mind is our priority. If you are facing a family law
+            matter, allow us to provide the dedicated, sophisticated counsel you
+            deserve.
+          </p>
+          <a href="index.html#contact" class="btn btn-secondary"
+            >Schedule a Confidential Consultation</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-footer text-gray-300">
+      <div class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <img
+              src="images-home/Justivia Logo.png"
+              alt="Justivia Law Firm Logo"
+              class="h-20 w-auto mb-4"
+            />
+            <p class="font-serif text-gray-400">
+              Providing sophisticated, strategic counsel with a deeply human
+              touch during life's most challenging transitions.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-white mb-4">Quick Links</h3>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li>
+                <a href="practice-areas.html" class="footer-link"
+                  >Practice Areas</a
+                >
+              </li>
+              <li>
+                <a href="testimonials.html" class="footer-link">Testimonials</a>
+              </li>
+              <li><a href="about.html" class="footer-link">About</a></li>
+              <li>
+                <a href="index.html#contact" class="footer-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-white mb-4">Contact Us</h3>
+            <address class="not-italic space-y-3 text-gray-400">
+              <p>123 Legal Avenue, Suite 400<br />New York, NY 10001</p>
+              <p>
+                Phone:
+                <a href="tel:1234567890" class="hover:text-accent"
+                  >(123) 456-7890</a
+                >
+              </p>
+              <p>
+                Email:
+                <a
+                  href="mailto:contact@justivialaw.com"
+                  class="hover:text-accent"
+                  >contact@justivialaw.com</a
+                >
+              </p>
+            </address>
+          </div>
+          <div>
+            <h3 class="font-display text-xl text-white mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="social-icon text-gray-400">
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-icon text-gray-400">
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-icon text-gray-400">
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v2.385z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr class="border-gray-700 my-8" />
+        <div class="text-center text-gray-500">
+          <p class="text-sm">
+            The information on this website is for general information purposes
+            only. Nothing on this site should be taken as legal advice for any
+            individual case or situation. This information is not intended to
+            create, and receipt or viewing does not constitute, an
+            attorney-client relationship.
+          </p>
+          <p class="text-sm mt-2">
+            &copy; 2025 Justivia Law Firm. All Rights Reserved. Attorney
+            Advertising.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- MEGA MENU LOGIC ---
+        const header = document.getElementById("main-header");
+        const practiceAreaTrigger = document.getElementById(
+          "practice-areas-trigger"
+        );
+        const megaMenu = document.getElementById("mega-menu-container");
+        let hideMenuTimeout;
+        function showMenu() {
+          clearTimeout(hideMenuTimeout);
+          megaMenu.classList.add("active");
+          practiceAreaTrigger.classList.add("menu-active");
+        }
+        function hideMenu() {
+          megaMenu.classList.remove("active");
+          practiceAreaTrigger.classList.remove("menu-active");
+        }
+        practiceAreaTrigger.addEventListener("mouseenter", showMenu);
+        header.addEventListener("mouseleave", () => {
+          hideMenuTimeout = setTimeout(hideMenu, 200);
+        });
+        megaMenu.addEventListener("mouseenter", () => {
+          clearTimeout(hideMenuTimeout);
+        });
+
+        // --- HERO ENTRANCE ANIMATION ---
+        const heroElements = document.querySelectorAll(".animate-on-load");
+        heroElements.forEach((el) => {
+          setTimeout(() => {
+            el.classList.add("is-visible");
+          }, 100);
+        });
+
+        // --- SCROLL ANIMATION LOGIC ---
+        const animatedElements =
+          document.querySelectorAll(".animate-on-scroll");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              }
+            });
+          },
+          {
+            threshold: 0.4,
+          }
+        );
+        animatedElements.forEach((el) => observer.observe(el));
+
+        const storyCards = document.querySelectorAll(".story-card");
+        const timelinePathProgress = document.getElementById(
+          "timeline-path-progress"
+        );
+        window.addEventListener("scroll", () => {
+          // Timeline Path Animation
+          const firstCard = storyCards[0];
+          const lastCard = storyCards[storyCards.length - 1];
+          if (firstCard && lastCard && timelinePathProgress) {
+            const firstRect = firstCard.getBoundingClientRect();
+            const lastRect = lastCard.getBoundingClientRect();
+            const totalHeight =
+              lastRect.top +
+              lastRect.height / 2 -
+              (firstRect.top + firstRect.height / 2);
+            const progress = (-firstRect.top / totalHeight) * 100;
+            timelinePathProgress.style.height = `${Math.min(
+              Math.max(progress, 0),
+              100
+            )}%`;
+          }
+
+          // 3D Parallax on Story Cards
+          storyCards.forEach((card) => {
+            const cardContent = card.querySelector(".story-card-content");
+            const rect = card.getBoundingClientRect();
+            const distanceFromCenter =
+              rect.top + rect.height / 2 - window.innerHeight / 2;
+            const rotateX = (distanceFromCenter / window.innerHeight) * -8;
+            cardContent.style.transform = `rotateX(${rotateX}deg)`;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
